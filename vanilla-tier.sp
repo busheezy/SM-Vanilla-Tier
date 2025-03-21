@@ -111,8 +111,8 @@ void OutputMapTierInfoIfFound(int client, char[] mapName)
   if (vanillaMapIndex != -1)
   {
     ReplyToCommand(client, "%s %s", CHAT_PREFIX, g_VanillaMaps[vanillaMapIndex].name);
-    ReplyToCommand(client, "%s TP Tier: \x04%d", CHAT_PREFIX, g_VanillaMaps[vanillaMapIndex].tpTier);
-    ReplyToCommand(client, "%s Pro Tier: \x04%d", CHAT_PREFIX, g_VanillaMaps[vanillaMapIndex].proTier);
+    ReplyToCommand(client, "%s \x10VNL NUB: \x01%d", CHAT_PREFIX, g_VanillaMaps[vanillaMapIndex].tpTier);
+    ReplyToCommand(client, "%s \x0BVNL PRO: \x01%d", CHAT_PREFIX, g_VanillaMaps[vanillaMapIndex].proTier);
     return;
   }
 
@@ -142,10 +142,9 @@ void LoadVanillaMaps()
   bool sent = SteamWorks_SendHTTPRequest(request);
   if (!sent)
   {
+    LogError("maps request could not be made.");
     return;
   }
-
-  LogError("maps request could not be made.")
 }
 
 public int OnVanillaMapsRequestComplete(Handle hRequest, bool bFailure, bool bRequestSuccessful, EHTTPStatusCode eStatusCode)
@@ -202,10 +201,9 @@ void LoadUncompletedMaps()
   bool sent = SteamWorks_SendHTTPRequest(request);
   if (!sent)
   {
+    LogError("Uncompleted maps request could not be made.");
     return;
   }
-
-  LogError("Uncompleted maps request could not be made.")
 }
 
 public int OnUncompletedMapsRequestComplete(Handle hRequest, bool bFailure, bool bRequestSuccessful, EHTTPStatusCode eStatusCode)
