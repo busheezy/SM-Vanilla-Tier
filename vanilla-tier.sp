@@ -2,7 +2,7 @@
 #include <sourcemod>
 #include <SteamWorks>
 
-#define API_HOST    "https://vnl.kz/api/"
+#define API_HOST    "https://vnl.kz/api"
 #define CHAT_PREFIX "[\x0Evnl.kz\x01]"
 
 #pragma newdecls required
@@ -129,7 +129,7 @@ void OutputMapTierInfoIfFound(int client, char[] mapName)
 void LoadVanillaMaps()
 {
   char mapsUrl[128];
-  Format(mapsUrl, sizeof(mapsUrl), "%smaps", API_HOST);
+  Format(mapsUrl, sizeof(mapsUrl), "%s/maps", API_HOST);
 
   Handle request = SteamWorks_CreateHTTPRequest(k_EHTTPMethodGET, mapsUrl);
   if (request == null)
@@ -189,7 +189,7 @@ public int OnVanillaMapsRequestComplete(Handle hRequest, bool bFailure, bool bRe
 void LoadUncompletedMaps()
 {
   char mapsUrl[128];
-  Format(mapsUrl, sizeof(mapsUrl), "%suncompleted", API_HOST);
+  Format(mapsUrl, sizeof(mapsUrl), "%s/uncompleted", API_HOST);
 
   Handle request = SteamWorks_CreateHTTPRequest(k_EHTTPMethodGET, mapsUrl);
   if (request == null)
