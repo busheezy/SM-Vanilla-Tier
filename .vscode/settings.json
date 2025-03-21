@@ -1,0 +1,7 @@
+{
+  "sourcepawn.outputDirectoryPath": "C:\\Users\\ryan9\\Desktop\\dev\\sp\\SM Vanilla Tier\\out\\",
+  "SourcePawnLanguageServer.includeDirectories": [
+    "C:\\Users\\ryan9\\Desktop\\dev\\sourcemod-1.11.0\\addons\\sourcemod\\scripting\\include",
+    "C:\\Users\\ryan9\\Desktop\\dev\\sp\\SM Vanilla Tier\\include"
+  ]
+}
