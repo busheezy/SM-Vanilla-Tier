@@ -178,8 +178,6 @@ public int OnVanillaMapsRequestComplete(Handle hRequest, bool bFailure, bool bRe
     vanillaMap.tpTier  = map.GetInt("tpTier");
 
     g_VanillaMaps[i] = vanillaMap;
-
-    PrintToServer("Map: %s, KZT: %d, PRO: %d, TP: %d", vanillaMap.name, vanillaMap.kztTier, vanillaMap.proTier, vanillaMap.tpTier);
   }
 
   json_cleanup_and_delete(vanillaMaps);
@@ -238,8 +236,6 @@ public int OnUncompletedMapsRequestComplete(Handle hRequest, bool bFailure, bool
     uncompletedMap.kztTier = map.GetInt("kztTier");
 
     g_UncompletedMaps[i] = uncompletedMap;
-
-    PrintToServer("Uncompleted Map: %s, KZT: %d", uncompletedMap.name, uncompletedMap.kztTier);
   }
 
   json_cleanup_and_delete(vanillaMaps);
