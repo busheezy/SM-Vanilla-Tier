@@ -38,6 +38,9 @@ UncompletedMap g_UncompletedMaps[2048];
 public void OnPluginStart()
 {
   RegConsoleCmd("sm_vnltier", OnVanillaTierCmd, "Show the map's vanilla tier.");
+
+  LoadVanillaMaps();
+  LoadUncompletedMaps();
 }
 
 public void OnMapStart()
