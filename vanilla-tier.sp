@@ -90,6 +90,26 @@ int GetVanillaMapIndexByName(char[] mapName)
   return -1;
 }
 
+void ClearVanillaMaps()
+{
+  VanillaMap empty;
+
+  for (int i = 0; i < sizeof(g_VanillaMaps); i++)
+  {
+    g_VanillaMaps[i] = empty;
+  }
+}
+
+void ClearUncompletedMaps()
+{
+  UncompletedMap empty;
+
+  for (int i = 0; i < sizeof(g_UncompletedMaps); i++)
+  {
+    g_UncompletedMaps[i] = empty;
+  }
+}
+
 int GetUncompletedMapIndexByName(char[] mapName)
 {
   for (int i = 0; i < sizeof(g_UncompletedMaps); i++)
@@ -161,6 +181,8 @@ public int OnVanillaMapsRequestComplete(Handle hRequest, bool bFailure, bool bRe
     LogError("Failed pushing info, status: %d", eStatusCode);
   }
 
+  ClearVanillaMaps();
+
   int bodySize;
   SteamWorks_GetHTTPResponseBodySize(hRequest, bodySize);
 
@@ -219,6 +241,8 @@ public int OnUncompletedMapsRequestComplete(Handle hRequest, bool bFailure, bool
   {
     LogError("Failed pushing info, status: %d", eStatusCode);
   }
+
+  ClearUncompletedMaps();
 
   int bodySize;
   SteamWorks_GetHTTPResponseBodySize(hRequest, bodySize);
